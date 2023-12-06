@@ -151,7 +151,7 @@ function App() {
                     <TableHead>
                       <TableRow>
                         <TableCell>Index #</TableCell>
-                        <TableCell>Category</TableCell>
+                        <TableCell>Value</TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>
