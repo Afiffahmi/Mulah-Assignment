@@ -57,7 +57,12 @@ function App() {
       setCsvData(data); // update state
 
       const result = calculateValue(firstIndex, secondIndex, selectedOperation);
+      if(!result){
+        setResult(0);
+      }else{
       setResult(parseFloat(result).toFixed(2));
+      }
+      
     })();
   }, [firstIndex, secondIndex, selectedOperation]);
 
@@ -128,6 +133,7 @@ function App() {
         <Container component="main" maxWidth="xs">
           <Grid item xs={9} sm={5} md={4}
             sx={{
+              
               marginTop: 5,
               display: "flex",
               flexDirection: "column",
@@ -139,7 +145,7 @@ function App() {
             <Stack direction={isMobile ? 'column' : 'row'} spacing={2}>
               <Card
                 sx={{
-                  minWidth: 445,
+                  maxWidth: isMobile ? '100%' : 445,
                   marginTop: 8,
                   display: "flex",
                   flexDirection: "column",
@@ -183,7 +189,7 @@ function App() {
               </Card>
               <Card
                 sx={{
-                  minWidth: 445,
+                  maxWidth: isMobile ? '100%' : 445,
                   marginTop: 8,
                   display: "flex",
                   flexDirection: "column",
