@@ -2,16 +2,12 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import table from "./Table_Input.csv";
 import { read, utils } from "xlsx";
-import { Button, Stack, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import FormHelperText from "@mui/material/FormHelperText";
-import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Select from "@mui/material/Select";
 import Container from "@mui/material/Container";
-import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
-import { createTheme, ThemeProvider, makeStyles, useTheme } from "@mui/material/styles";
 import {
   Card,
   Table,
@@ -26,6 +22,8 @@ import {
 import Grid from "@mui/material/Grid";
 import Header from "./component/Header";
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
+
 
 function App() {
   const [csvData, setCsvData] = useState([]);
@@ -59,7 +57,7 @@ function App() {
       setCsvData(data); // update state
 
       const result = calculateValue(firstIndex, secondIndex, selectedOperation);
-      setResult(result);
+      setResult(parseFloat(result).toFixed(2));
     })();
   }, [firstIndex, secondIndex, selectedOperation]);
 
@@ -106,6 +104,7 @@ function App() {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
+
     <Box
       sx={{
         backgroundImage: `url(${"https://e1.pxfuel.com/desktop-wallpaper/43/739/desktop-wallpaper-abstract-gray-waves-in-motion-at-top-and-bottom-on-white-backgrounds-white-background.jpg"})`,
@@ -116,38 +115,41 @@ function App() {
       }}
     >
       <Grid
-      item xs={12} sm={6} md={4}
+      item xs={7} sm={5} md={4}
         sx={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          p: { xs: 0, sm: 2 },
         }}
       >
         <Header />
 
         <Container component="main" maxWidth="xs">
-          <Grid item xs={12} sm={6} md={4}
+          <Grid item xs={9} sm={5} md={4}
             sx={{
               marginTop: 5,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
+              
 
             }}
           >
             <Stack direction={isMobile ? 'column' : 'row'} spacing={2}>
               <Card
                 sx={{
-                  minWidth: 400,
+                  minWidth: 445,
                   marginTop: 8,
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
+                  p: { xs: 2, sm: 2 },
                 }}
               >
                 <h2>Table 1</h2>
-                <TableContainer component={Paper} sx={{ width: "100%" }}>
-                  <Table sx={{ width: "100%" }}>
+                <TableContainer component={Paper} >
+                  <Table >
                     <TableHead>
                       <TableRow>
                         <TableCell>Index #</TableCell>
@@ -181,19 +183,20 @@ function App() {
               </Card>
               <Card
                 sx={{
-                  minWidth: 400,
+                  minWidth: 445,
                   marginTop: 8,
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
+                  p: { xs: 2, sm: 2 },
                 }}
               >
                 <h2>Table 2</h2>
                 <TableContainer
                   component={Paper}
-                  sx={{ width: "100%", height: "100%" }}
+                 
                 >
-                  <Table sx={{ width: "100%", height: "100%" }}>
+                  <Table >
                     <TableHead>
                       <TableRow>
                         <TableCell>Category</TableCell>
@@ -219,7 +222,7 @@ function App() {
                           {calculateValue("A13", "A12", "*")}
                         </TableCell>
                       </TableRow>
-                      <TableRow sx={{ width: "100%" }}>
+                      <TableRow>
                         <TableCell sx={{ marginTop: 2, display: "flex" }}>
                           <Stack spacing={2}>
                             <Typography sx={{ marginTop: 2, display: "flex" }}>
@@ -233,7 +236,6 @@ function App() {
                                     value={firstIndex}
                                     label="First Index"
                                     onChange={handleFirstIndexChange}
-                                    sx={{ minWidth: 100 }}
                                     placeholder="Select Index"
                                   >
                                     {csvData.map((row) => (
@@ -264,7 +266,7 @@ function App() {
                                     value={secondIndex}
                                     label="Second Index"
                                     onChange={handleSecondIndexChange}
-                                    sx={{ minWidth: 100 }}
+                                   
                                     placeholder="Select Index"
                                   >
                                     {csvData.map((row) => (
@@ -300,6 +302,7 @@ function App() {
         </Container>
       </Grid>
     </Box>
+
   );
 }
 
