@@ -145,7 +145,7 @@ function App() {
             <Stack direction={isMobile ? 'column' : 'row'} spacing={2}>
               <Card
                 sx={{
-                  minWidth: isMobile ? '100%' : 445,
+                  minWidth: isMobile ? '60%' : 445,
                   marginTop: 8,
                   display: "flex",
                   flexDirection: "column",
@@ -189,7 +189,7 @@ function App() {
               </Card>
               <Card
                 sx={{
-                  minWidth: isMobile ? '100%' : 445,
+                  minWidth: isMobile ? '60%' : 445,
                   marginTop: 8,
                   display: "flex",
                   flexDirection: "column",
