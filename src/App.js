@@ -23,6 +23,8 @@ import Grid from "@mui/material/Grid";
 import Header from "./component/Header";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import Snackbar from '@mui/material/Snackbar';
+import Button from '@mui/material/Button';
 
 
 function App() {
@@ -119,6 +121,7 @@ function App() {
         backdropFilter: "blur(10px)",
       }}
     >
+
       <Grid
       item xs={12} sm={6} md={4}
         sx={{
@@ -129,6 +132,13 @@ function App() {
         }}
       >
         <Header />
+
+        <Snackbar
+        open= {!isMobile}
+          autoHideDuration={500}
+          message="This page is responsive on mobile devices."
+          sx={{ bottom: { xs: 10, sm: 10 } }}
+        />
 
         <Container component="main" maxWidth="xs">
           <Grid item xs={12} sm={6} md={4}
