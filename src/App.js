@@ -115,6 +115,7 @@ function App() {
       }}
     >
       <Grid
+      item xs={12} sm={6} md={4}
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -125,7 +126,7 @@ function App() {
         <Header />
 
         <Container component="main" maxWidth="xs">
-          <Box
+          <Grid item xs={12} sm={6} md={4}
             sx={{
               marginTop: 5,
               display: "flex",
@@ -295,7 +296,7 @@ function App() {
                 </TableContainer>
               </Card>
             </Stack>
-          </Box>
+          </Grid>
         </Container>
       </Grid>
     </Box>
