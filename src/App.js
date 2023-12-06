@@ -151,6 +151,7 @@ function App() {
                   flexDirection: "column",
                   alignItems: "center",
                   p: { xs: 2, sm: 2 },
+                  backgroundColor: 'rgba(0, 0, 0, 0.1)',
                 }}
               >
                 <h2>Table 1</h2>
@@ -195,6 +196,7 @@ function App() {
                   flexDirection: "column",
                   alignItems: "center",
                   p: { xs: 2, sm: 2 },
+                  backgroundColor: 'rgba(0, 0, 0, 0.1)',
                 }}
               >
                 <h2>Table 2</h2>
