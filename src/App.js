@@ -229,9 +229,9 @@ function App() {
                         </TableCell>
                       </TableRow>
                       <TableRow>
-                        <TableCell sx={{ marginTop: 2, display: "flex" }}>
+                        <TableCell >
                           <Stack spacing={2}>
-                            <Typography sx={{ marginTop: 2, display: "flex" }}>
+                            <Typography >
                               Custom Operation :{" "}
                             </Typography>
                             <form>
