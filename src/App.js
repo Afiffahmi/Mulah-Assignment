@@ -11,7 +11,7 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
-import { createTheme, ThemeProvider, makeStyles } from "@mui/material/styles";
+import { createTheme, ThemeProvider, makeStyles, useTheme } from "@mui/material/styles";
 import {
   Card,
   Table,
@@ -25,6 +25,7 @@ import {
 } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Header from "./component/Header";
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 function App() {
   const [csvData, setCsvData] = useState([]);
@@ -101,8 +102,8 @@ function App() {
         break;
     }
   };
-
-  const defaultTheme = createTheme();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <Box
@@ -120,7 +121,6 @@ function App() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          width: "100%",
         }}
       >
         <Header />
@@ -132,12 +132,13 @@ function App() {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
+
             }}
           >
-            <Stack direction="row" spacing={2}>
+            <Stack direction={isMobile ? 'column' : 'row'} spacing={2}>
               <Card
                 sx={{
-                  minWidth: 575,
+                  minWidth: 400,
                   marginTop: 8,
                   display: "flex",
                   flexDirection: "column",
@@ -178,10 +179,9 @@ function App() {
                   onRowsPerPageChange={handleChangeRowsPerPage}
                 />
               </Card>
-
               <Card
                 sx={{
-                  minWidth: 575,
+                  minWidth: 400,
                   marginTop: 8,
                   display: "flex",
                   flexDirection: "column",
