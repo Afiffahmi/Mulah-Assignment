@@ -293,10 +293,7 @@ function App() {
                       </TableRow>
                       <TableRow>
                         <TableCell>
-                          <Typography variant="h3">Result :</Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography variant="h2">{result}</Typography>
+                        <Typography variant="h2">{result}</Typography>
                         </TableCell>
                       </TableRow>
                     </TableBody>
